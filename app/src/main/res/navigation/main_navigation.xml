@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/teamsOrPlayersFragment">
+
+    <fragment
+        android:id="@+id/chooseTeamFragment"
+        android:name="com.example.nbaapp.ChooseTeamFragment"
+        android:label="fragment_choose_team"
+        tools:layout="@layout/fragment_choose_team" >
+        <action
+            android:id="@+id/action_chooseTeamFragment_to_teamDetailsFragment"
+            app:destination="@id/teamDetailsFragment"
+            app:popUpTo="@id/chooseTeamFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playersFragment"
+        android:name="com.example.nbaapp.PlayersFragment"
+        android:label="fragment_players"
+        tools:layout="@layout/fragment_players" >
+        <action
+            android:id="@+id/action_playersFragment_to_playerDetailsFragment"
+            app:destination="@id/playerDetailsFragment"
+            app:popUpTo="@id/playersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playerDetailsFragment"
+        android:name="com.example.nbaapp.PlayerDetailsFragment"
+        android:label="fragment_player_details"
+        tools:layout="@layout/fragment_player_details" >
+        <argument
+            android:name="playerId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamsOrPlayersFragment"
+        android:name="com.example.nbaapp.TeamsOrPlayersFragment"
+        android:label="fragment_teams_or_players"
+        tools:layout="@layout/fragment_teams_or_players" >
+        <action
+            android:id="@+id/action_teamsOrPlayersFragment_to_chooseTeamFragment"
+            app:destination="@id/chooseTeamFragment"
+            app:popUpTo="@id/teamsOrPlayersFragment" />
+        <action
+            android:id="@+id/action_teamsOrPlayersFragment_to_playersFragment"
+            app:destination="@id/playersFragment"
+            app:popUpTo="@id/teamsOrPlayersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamDetailsFragment"
+        android:name="com.example.nbaapp.TeamDetailsFragment"
+        android:label="fragment_team_details"
+        tools:layout="@layout/fragment_team_details" >
+        <argument
+            android:name="teamId"
+            app:argType="string" />
+    </fragment>
+</navigation>
